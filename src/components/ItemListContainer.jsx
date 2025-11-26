@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router";
 import Item from "./Item";
 import { Flex } from "antd";
 
 export default function ItemListContainer() {
-  const params = useParams()
 
   const [productos, setProductos] = useState([])
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function ItemListContainer() {
         setProductos(result)
       })
   }, []);
-  const [value, setValue] = React.useState('horizontal');
 
   const EstiloBase = {
     width: '25%',

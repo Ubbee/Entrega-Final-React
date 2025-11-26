@@ -6,7 +6,6 @@ export default function Item(prop) {
 
   const { Meta } = Card;
 
-  console.log(prop.productos);
 
 
   return (

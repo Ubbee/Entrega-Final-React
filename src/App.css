@@ -10,6 +10,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #root {
@@ -29,11 +30,36 @@ body,
   display: flex;
   list-style: none;
   font-size: 1rem;
-
 }
 
+.headerContainer .iconosHeader a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.headerContainer .iconosHeader a:hover {
+  transform: translateY(1.3px);
+}
+.headerContainer h1 a{
+  color: white;
+  text-decoration: none;
+}
 .iconosHeader li {
   margin-right: 10px;
+}
+
+.icono-carro span ion-icon {
+  font-size: 1.5rem;
+}
+
+.icono-carro span .ant-scroll-number {
+  font-size: 10px;
+  height: 16px;
+  min-width: 16px;
+  line-height: 16px;
 }
 
 .contenedor {
@@ -51,9 +77,27 @@ body,
   transition: 0.3s;
   width: 200px;
   border-radius: 10px;
+  font-weight: 100;
 }
 
 .card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1),
     0 6px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card button {
+  margin-top: 15px;
+  border: 0px;
+  background-color: #00C479;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.card button:hover {
+  transform: translateY(1px);
+}
+
+.card button a {
+  color: white;
 }
