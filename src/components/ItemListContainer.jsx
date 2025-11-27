@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
 import Item from "./Item";
 import { Flex } from "antd";
 
@@ -23,7 +22,7 @@ export default function ItemListContainer() {
   return (
     <Flex gap="middle" wrap="wrap" className="contenedor">
       {productos.map((producto) => {
-        return <Item productos={producto} />
+        return <Item productos={producto} key={producto.id}/>
       })}
     </Flex>
   );

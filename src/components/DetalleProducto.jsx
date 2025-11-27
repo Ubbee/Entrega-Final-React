@@ -22,10 +22,7 @@ export default function DetalleProducto() {
     if (!producto) return <div>Cargando…</div>;
 
     function handleAddToCart() {
-        elValorDelContexto.addToCart(contadorActual, producto)
-        
-        console.log(contadorActual);
-        
+        elValorDelContexto.addToCart(contadorActual, producto)  
     }
 
     function handleEjemplo(contador) {

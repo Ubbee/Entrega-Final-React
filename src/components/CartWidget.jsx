@@ -1,13 +1,17 @@
 import { Badge } from 'antd';
  import { useProducts } from './useContext'; 
+import { Navigate } from 'react-router-dom';
 
 export default function CartWidget() {
    const elValorDelContexto = useProducts() 
-  console.log(elValorDelContexto.cant_productos);
   
+  function HandleNavigation(){
+    Navigate("/Cart")
+  }
+
   return (
     <Badge  count={elValorDelContexto.cant_productos} >
-      <ion-icon name="cart"></ion-icon>
+      <ion-icon name="cart" onClick={HandleNavigation}></ion-icon>
     </Badge>
   )
 }

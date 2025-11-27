@@ -43,10 +43,12 @@ body,
 .headerContainer .iconosHeader a:hover {
   transform: translateY(1.3px);
 }
-.headerContainer h1 a{
+
+.headerContainer h1 a {
   color: white;
   text-decoration: none;
 }
+
 .iconosHeader li {
   margin-right: 10px;
 }
@@ -100,4 +102,30 @@ body,
 
 .card button a {
   color: white;
+}
+
+.Contenedor-carro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.Contenedor-carro p {
+  margin: 10px 0px;
+}
+
+.Contenedor-carro button {
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 0px;
+  background-color: #00C479;
+  color: white;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.Contenedor-carro button:hover {
+  transform: translateY(1px);
 }

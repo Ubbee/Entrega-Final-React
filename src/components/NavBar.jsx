@@ -5,10 +5,9 @@ export default function NavBar() {
         <div className="headerContainer">
             <h1><Link to="/">LOGO</Link></h1>
             <ul className="iconosHeader">
-                <Link to="/">Inicio</Link>
                 <Link to="/">Productos</Link>
-                <Link to="/categoria/muebles">Muebles</Link>
-                <Link to="/" className="icono-carro"><CartWidget /></Link>
+                <Link to="/category/smartphones">Celulares</Link>
+                <Link to="/cart" className="icono-carro"><CartWidget /></Link>
             </ul>
         </div>
     )
