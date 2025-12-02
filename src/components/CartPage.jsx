@@ -1,9 +1,9 @@
-import { Navigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 export default function CartPage() {
-
+const navigate = useNavigate()
 function handleFinalizarCompra(){
-    Navigate("/checkout")
+    navigate("/checkout")
 }
     return (
         <div className="Contenedor-carro">
