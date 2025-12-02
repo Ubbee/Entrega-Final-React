@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import { Flex } from "antd";
+import toast from "react-hot-toast";
+import { fetchProductosAsync } from "../utils";
 
 export default function ItemListContainer() {
 
   const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/`)
-      .then(data => data.json())
-      .then((data) => {
-        const result = data.products
-        setProductos(result)
-      })
-  }, []);
+    toast.promise(fetchProductosAsync, {
+      loading: "Cargando productos...",
+      success: (respuesta) => {
+        setProductos(respuesta.products)
+        setLoading(false)
+        return "Productos cargados exitosamente!"
+      },
+      error: () => {
+        setLoading(false)
+        return "Hubo un error al cargar los productos"
+      },
+    })
+  }, [])
+
 
   const EstiloBase = {
     width: '25%',
@@ -20,9 +31,9 @@ export default function ItemListContainer() {
   };
 
   return (
-    <Flex gap="middle" wrap="wrap" className="contenedor">
+    <Flex gap="middle" wrap="wrap" className="contenedor" >
       {productos.map((producto) => {
-        return <Item productos={producto} key={producto.id}/>
+        return <Item productos={producto}  key={producto.id}/>
       })}
     </Flex>
   );

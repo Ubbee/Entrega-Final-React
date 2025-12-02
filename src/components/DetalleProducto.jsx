@@ -1,28 +1,28 @@
-import { Flex } from 'antd'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
 import Contador from './Contador';
 import { useProducts } from './useContext';
+import { getDocumentByID } from '../utils';
 
-export default function DetalleProducto() {
+export default function DetalleProducto({ id }) {
     const elValorDelContexto = useProducts()
-
-    const { id } = useParams();
     const [producto, setProducto] = useState(null);
+
     let contadorActual = 0;
 
-
     useEffect(() => {
-        fetch(`https://dummyjson.com/products/${id}`)
-            .then(r => r.json())
-            .then(data => setProducto(data))
-            .catch(console.error);
+        getDocumentByID(id)
+            .then((respuesta) => {
+                setProducto(respuesta)
+            }).catch((respuesta) => {
+                console.log(respuesta)
+            })
     }, [id]);
+
 
     if (!producto) return <div>Cargando…</div>;
 
     function handleAddToCart() {
-        elValorDelContexto.addToCart(contadorActual, producto)  
+        elValorDelContexto.addToCart(contadorActual, producto)
     }
 
     function handleEjemplo(contador) {
@@ -32,10 +32,10 @@ export default function DetalleProducto() {
     return (
         <div>
             <h2>{producto.title}</h2>
-            <img src={producto.images?.[0]} width={200} />
-            <p>{producto.description}</p>
-            <p>$ {producto.price}</p>
-            <Contador stock={producto.stock} handleEjemplo={handleEjemplo}/>
+            <img src={producto.imagen?.[0]} width={200} />
+            <p>{producto.nombre}</p>
+            <p>$ {producto.precio}</p>
+            <Contador stock={producto.stock} handleEjemplo={handleEjemplo} />
             <button onClick={handleAddToCart}>Agregar al Carrito</button>
         </div>
     );
