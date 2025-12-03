@@ -1,8 +1,7 @@
 
 import { Route, Routes } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer";
-import DetalleProducto from "./DetalleProducto";
-import Categoria from "./categoria";
+import Categoria from "./Categoria.jsx";
 import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
 import DetalleProductoPage from "./DetalleProductoPage";
