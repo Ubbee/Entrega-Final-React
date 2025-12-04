@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import CartWidget from "./cartWidget"
+import CartWidget from "./CartWidget"
 export default function NavBar() {
     
     return (
