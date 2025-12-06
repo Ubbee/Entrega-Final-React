@@ -22,7 +22,7 @@ export default function Item(prop) {
       }
     >
       <Meta title={prop.productos.nombre} />
-      <Meta title={prop.productos.precio} className='card-precio'/>
+      <Meta title={prop.productos.precio} className='card-precio' />
 
 
     </Card>

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
 import { db } from "./firebaseConfig"
 
 export async function fetchProductosAsync() {
@@ -11,9 +11,10 @@ export async function fetchProductosAsync() {
 
         const usuariosFinales = miConsulta.docs.map((doc) => {
 
-            const producto = doc.data() //{ id : 1, title : "Producto 1", price : 100 , ....}
+            const producto = doc.data()
 
-            producto.firebaseID = doc.id //{ id : 1, title : "Producto 1", price : 100 , ...., firebaseID : "1234567890" }
+            producto.firebaseID = doc.id
+
 
             return producto
         })
@@ -27,7 +28,38 @@ export async function fetchProductosAsync() {
         console.log(error)
     }
 
-    /*  console.log("Termino todo ") */
+
+}
+
+export async function fetchProductosByCategory(categoria) {
+
+    try {
+
+        const productosCollection = collection(db, "productos")
+        const data = query(productosCollection, where("categoria", "==", categoria));
+        const miConsulta = await getDocs(data)
+
+        const productos = miConsulta.docs.map((doc) => {
+
+            const producto = doc.data()
+
+            producto.firebaseID = doc.id
+            console.log(producto);
+            
+
+            return producto
+        })
+
+        const products = productos
+        return {
+            products
+        }
+
+    } catch (error) {
+        console.log("Salio todo mal", error)
+        throw error
+    }
+
 
 }
 

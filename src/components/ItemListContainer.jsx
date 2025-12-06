@@ -24,16 +24,10 @@ export default function ItemListContainer() {
     })
   }, [])
 
-
-  const EstiloBase = {
-    width: '25%',
-    height: 54
-  };
-
   return (
     <Flex gap="middle" wrap="wrap" className="contenedor" >
       {productos.map((producto) => {
-        return <Item productos={producto}  key={producto.id}/>
+        return <Item productos={producto} key={producto.firebaseID}/>
       })}
     </Flex>
   );
